@@ -41,16 +41,16 @@ function Header() {
       </div>
 
       <div className="flex items-center gap-4 text-sm font-light">
-        <FiSearch className="hidden sm:inline" />
+        <FiSearch className="hidden md:h-4 md:w-4 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
-        <FiBell />
+        <FiBell className="h-5 w-5 md:h-4 md:w-4" />
         <Link href="/account">
           <Image
             className="rounded"
             src="https://rb.gy/g1pwyx"
             alt="account"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             objectFit="contain"
           />
         </Link>
