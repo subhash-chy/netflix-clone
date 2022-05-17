@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import { Banner, Header } from "../components";
+import { Banner, Header, Category } from "../components";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
 
@@ -39,7 +39,18 @@ const Home = (props: Props) => {
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         {/* Banner */}
         <Banner netflixOriginals={netflixOriginals} />
-        <section>{/* Rows */}</section>
+        <section className="space-y-12 md:space-y-24">
+          <Category title="Trending Now" movies={trendingNow} />
+          <Category title="Top Rated" movies={topRated} />
+          <Category title="Action Thrillers" movies={actionMovies} />
+          {/* My List */}
+          {/* {list.length > 0 && <Category title="My List" movies={list} />} */}
+
+          <Category title="Comedies" movies={comedyMovies} />
+          <Category title="Scary Movies" movies={horrorMovies} />
+          <Category title="Romance Movies" movies={romanceMovies} />
+          <Category title="Documentaries" movies={documentaries} />
+        </section>
       </main>
     </>
   );

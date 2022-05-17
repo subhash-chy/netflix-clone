@@ -18,17 +18,16 @@ function Banner(props: Props) {
     );
   }, [netflixOriginals]);
 
-  console.log(movie);
-
   return (
-    <div className="flex flex-col gap-y-2 py-16 md:gap-y-4 h-[90vh] justify-center lg:pb-12">
-      <div className="absolute top-0 left-0 h-[90vh] w-full -z-10">
+    <div className="flex flex-col gap-y-2 py-16 md:gap-y-4 h-[70vh] justify-center md:justify-end lg:pb-12">
+      <div className="absolute top-0 left-0 h-[60vh] md:h-[95vh] w-full -z-10">
         <Image
           src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute w-full h-full bg-gradient-to-r from-[#141414] to-transparent" />
+        <div className="absolute w-full h-full bg-gradient-to-br from-[#141414] via-[#141414]/5 to-transparent" />
+        <div className="absolute w-full h-full bg-gradient-to-t from-[#141414] via-[#141414]/5 to-transparent" />
       </div>
 
       <h1 className="font-bold text-2xl md:text-4xl lg:text-6xl">
