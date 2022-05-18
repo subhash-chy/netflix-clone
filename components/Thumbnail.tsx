@@ -14,6 +14,7 @@ function Thumbnail(props: Props) {
         src={`https://image.tmdb.org/t/p/w500${
           movie?.backdrop_path || movie?.poster_path
         }`}
+        alt={movie?.title || movie?.name || movie?.original_name}
         layout="fill"
         objectFit="cover"
       />

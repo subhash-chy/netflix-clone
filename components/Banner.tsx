@@ -23,6 +23,7 @@ function Banner(props: Props) {
       <div className="absolute top-0 left-0 h-[60vh] md:h-[95vh] w-full -z-10">
         <Image
           src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+          alt={movie?.title || movie?.name || movie?.original_name}
           layout="fill"
           objectFit="cover"
         />

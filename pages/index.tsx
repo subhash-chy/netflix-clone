@@ -38,8 +38,9 @@ const Home = (props: Props) => {
 
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         {/* Banner */}
-        <Banner netflixOriginals={netflixOriginals} />
+        <Banner netflixOriginals={trendingNow} />
         <section className="space-y-12 md:space-y-24">
+          <Category title="Netflix Originals" movies={netflixOriginals} />
           <Category title="Trending Now" movies={trendingNow} />
           <Category title="Top Rated" movies={topRated} />
           <Category title="Action Thrillers" movies={actionMovies} />
