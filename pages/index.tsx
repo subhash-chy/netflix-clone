@@ -1,6 +1,9 @@
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import { Banner, Header, Category } from "../components";
+import { useRecoilValue } from "recoil";
+import { Banner, Header, Category, Modal } from "../components";
+import useAuth from "../hooks/useAuth";
+import { modalState } from "../state/modalAtom";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
 
@@ -16,6 +19,9 @@ interface Props {
 }
 
 const Home = (props: Props) => {
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+
   const {
     netflixOriginals,
     actionMovies,
@@ -26,6 +32,14 @@ const Home = (props: Props) => {
     topRated,
     trendingNow,
   } = props;
+
+  // Custom loading here
+  if (loading)
+    return (
+      <div className="relative flex h-screen w-screen flex-col items-center justify-center">
+        Logging out...
+      </div>
+    );
   return (
     <>
       <Head>
@@ -53,6 +67,11 @@ const Home = (props: Props) => {
           <Category title="Documentaries" movies={documentaries} />
         </section>
       </main>
+      {showModal && (
+        <div className="">
+          <Modal />
+        </div>
+      )}
     </>
   );
 };

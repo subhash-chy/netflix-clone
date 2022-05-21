@@ -2,9 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiBell, FiSearch } from "react-icons/fi";
+import useAuth from "../hooks/useAuth";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,16 +46,17 @@ function Header() {
         <FiSearch className="hidden md:h-4 md:w-4 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
         <FiBell className="h-5 w-5 md:h-4 md:w-4" />
-        <Link href="/account">
-          <Image
-            className="rounded"
-            src="https://rb.gy/g1pwyx"
-            alt="account"
-            width={25}
-            height={25}
-            objectFit="contain"
-          />
-        </Link>
+        {/* <Link href="/account"> */}
+        <Image
+          onClick={logout}
+          className="rounded"
+          src="https://rb.gy/g1pwyx"
+          alt="account"
+          width={25}
+          height={25}
+          objectFit="contain"
+        />
+        {/* </Link> */}
       </div>
     </header>
   );
